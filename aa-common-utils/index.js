@@ -1,12 +1,10 @@
+const dateHelper = require('./utils/datehelper');
 
-// function consoleInput(inp) {
-//   console.log(inp);
-// }
-
-// module.exports = {
-//   consoleInput
-// };
-
-exports.printMsg = function() {
-  console.log("This is a message from the demo package");
+function printMsg () {
+  console.log("This is a demo message");
 }
+
+module.exports = {
+  printMsg,
+  dateHelper
+};
