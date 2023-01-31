@@ -1,5 +1,5 @@
 // default currentDate format is DD/MM/YYYY
-exports.getJSDateObj = function(dt, currentFormat = "DD/MM/YYYY") {
+exports.getJSDateObj = function (dt, currentFormat = "DD/MM/YYYY") {
     if (!dt) {
         return null;
     }
@@ -11,10 +11,13 @@ exports.getJSDateObj = function(dt, currentFormat = "DD/MM/YYYY") {
         const newDt = `${dtArr[1]}/${dtArr[0]}/${dtArr[2]}`;
         return new Date(newDt);
     }
+    if (currentFormat === "YYYY-MM-DD") {
+        return new Date(dt);
+    }
 }
 
 // dt passed as JS date object
-exports.isFutureDate = function(dt) {
+exports.isFutureDate = function (dt) {
     const now = Date.now();
     if ( now > dt.getTime()) {
         return false;
@@ -24,7 +27,7 @@ exports.isFutureDate = function(dt) {
 }
 
 // dt passed as JS date object
-exports.isPastDate = function(dt) {
+exports.isPastDate = function (dt) {
     const now = Date.now();
     if ( now > dt.getTime()) {
         return true;
@@ -35,9 +38,20 @@ exports.isPastDate = function(dt) {
 
 // dt passed as JS date object
 // Returns date as 'Oct 27, 2022' format
-exports.getMonDDYYYY = function(dt) {
+exports.getMonDDYYYY = function (dt) {
     if (!dt) {
         return null;
     }
     return new Date(dt).toLocaleDateString('en-us', { month:"short", year:"numeric", day:"numeric"});
+}
+
+// dt passed as YYYY-MM-DD format
+// Returns date as 'Oct 27, 2022' format sample
+exports.addDays = function (passedDt, noOfDays) {
+    if (!passedDt) {
+        return '';
+    }
+    const dt = new Date(passedDt);
+    dt.setDate(dt.getDate() + noOfDays);
+    return dt;
 }
