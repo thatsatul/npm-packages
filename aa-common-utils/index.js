@@ -1,5 +1,5 @@
 const dateHelper = require('./utils/datehelper');
-const emailHelper = require('./utils/emailHelper');
+const emailHelper = require('./utils/emailhelper');
 
 function printMsg () {
   console.log("This is a demo message");

@@ -1,4 +1,4 @@
-const isMobile = function() {
+exports.isMobile = function() {
   let check = false;
   (function(a) {
     if (
